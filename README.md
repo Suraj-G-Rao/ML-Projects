@@ -6,31 +6,42 @@ This project aims to predict student performance based on various features such 
 
 ## Project Structure
 
+### Components
 
-## Components
+1. **Data Ingestion**
 
-### 1. Data Ingestion
+   The `data_ingestion.py` script reads the dataset, splits it into training and test sets, and saves them to the artifacts directory. It performs the following tasks:
+   - Reads the raw dataset.
+   - Splits the data into training and test sets.
+   - Saves the datasets for further processing.
 
-The `data_ingestion.py` script reads the dataset, splits it into training and test sets, and saves them to the `artifacts` directory. It performs the following tasks:
-- Reads the raw dataset.
-- Splits the data into training and test sets.
-- Saves the datasets for further processing.
+2. **Data Transformation**
 
-### 2. Data Transformation
+   The `data_transformation.py` script preprocesses the data by handling missing values, encoding categorical features, and scaling numerical features. It utilizes:
+   - `ColumnTransformer` for applying different preprocessing pipelines to numerical and categorical data.
+   - Saves the preprocessing object to be used in the prediction pipeline.
 
-The `data_transformation.py` script preprocesses the data by handling missing values, encoding categorical features, and scaling numerical features. It utilizes:
-- `ColumnTransformer` for applying different preprocessing pipelines to numerical and categorical data.
-- Saves the preprocessing object to be used in the prediction pipeline.
+3. **Model Trainer**
 
-### 3. Model Trainer
+   The `model_trainer.py` script trains multiple regression models and selects the best one based on performance metrics. It includes:
+   - Training models such as Random Forest, Decision Tree, Gradient Boosting, XGBRegressor, CatBoostRegressor, and AdaBoost Regressor.
+   - Evaluating model performance using metrics like R2 score.
+   - Saving the best model for prediction.
 
-The `model_trainer.py` script trains multiple regression models and selects the best one based on performance metrics. It includes:
-- Training models such as Random Forest, Decision Tree, Gradient Boosting, XGBRegressor, CatBoostRegressor, and AdaBoost Regressor.
-- Evaluating model performance using metrics like R2 score.
-- Saving the best model for prediction.
+4. **Prediction Pipeline**
 
-### 4. Prediction Pipeline
+   The `predict_pipeline.py` script handles the prediction process. It includes:
+   - Loading the trained model and preprocessing object.
+   - Making predictions based on new input data.
 
-The `predict_pipeline.py` script handles the prediction process. It includes:
-- Loading the trained model and
+## Docker Information
+
+To simplify the deployment and management of the Student Performance Prediction project, a Docker image has been created. You can use this image to quickly run the project in a containerized environment.
+
+### Docker Image
+
+The Docker image is available on Docker Hub:
+
+- **Image Name:** `suraj0203/student_performance_prediction:latest`
+- **Repository Link:** [Docker Hub Repository](https://hub.docker.com/repository/docker/suraj0203/student_performance_prediction/general)
 
