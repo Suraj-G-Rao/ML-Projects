@@ -1,4 +1,4 @@
-### Student Performance Prediction Project
+# Student Performance Prediction Project
 
 ## Project Overview
 
